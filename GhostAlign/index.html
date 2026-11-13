@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GhostAlign — Precision Before & After Camera for Trades</title>
-  <meta name="description" content="Precision ghost-overlay camera & client PDF proof sheets for contractors, auto detailers, and trades.">
+  <title>GhostAlign — Precision Before & After Camera & Client PDF Proof for Trades</title>
+  <meta name="description" content="Stop arguing with clients over pre-existing damage. GhostAlign superimposes your before photo over the live camera viewfinder for millimeter-perfect after shots and instant branded PDF inspection reports.">
   <link rel="icon" type="image/svg+xml" href="assets/icon-192.svg">
   <style>
     :root {
       --primary: #38bdf8;
       --primary-hover: #7dd3fc;
-      --bg: #0f172a;
-      --surface: #1e293b;
+      --bg: #090d16;
+      --surface: #131c2e;
+      --surface-card: #1e293b;
       --border: #334155;
       --text: #f8fafc;
       --text-muted: #94a3b8;
     }
     * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
       color: var(--text);
       background-color: var(--bg);
@@ -64,7 +65,7 @@
     .hero {
       text-align: center;
       padding: 64px 20px 40px 20px;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .promo-pill {
@@ -74,25 +75,26 @@
       background: rgba(56, 189, 248, 0.12);
       color: var(--primary);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 9999px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 24px;
     }
     h1 {
-      font-size: 48px;
-      font-weight: 800;
+      font-size: 52px;
+      font-weight: 900;
       letter-spacing: -1.5px;
       margin: 0 0 20px 0;
+      line-height: 1.15;
       background: linear-gradient(135deg, #ffffff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: 20px;
+      font-size: 21px;
       color: var(--text-muted);
-      max-width: 650px;
+      max-width: 720px;
       margin: 0 auto 36px auto;
     }
     .cta-container {
@@ -107,97 +109,124 @@
       gap: 10px;
       padding: 14px 28px;
       border-radius: 10px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 16px;
       text-decoration: none;
       transition: all 0.2s;
     }
     .btn-primary {
       background: var(--primary);
-      color: #0f172a;
+      color: #090d16;
       box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
     }
     .btn-primary:hover {
       background: var(--primary-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
     .btn-secondary {
-      background: var(--surface);
+      background: var(--surface-card);
       color: var(--text);
       border: 1px solid var(--border);
     }
     .btn-secondary:hover { background: #334155; }
-    .preview-container {
-      max-width: 1000px;
-      margin: 50px auto 0 auto;
+    
+    /* Showcase Tabs & Gallery */
+    .showcase-section {
+      max-width: 1200px;
+      margin: 40px auto 80px auto;
       padding: 0 20px;
+    }
+    .showcase-header {
       text-align: center;
+      margin-bottom: 30px;
     }
-    .preview-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
+    .showcase-header h2 { font-size: 32px; font-weight: 800; margin: 0 0 10px 0; }
+    .showcase-header p { color: var(--text-muted); font-size: 16px; }
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: var(--surface-card);
       border: 1px solid var(--border);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
     }
+    .tab-btn.active, .tab-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .showcase-display {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .showcase-info h3 { font-size: 26px; font-weight: 800; margin: 0 0 12px 0; }
+    .showcase-info p { color: var(--text-muted); font-size: 16px; line-height: 1.6; }
+    .showcase-points { list-style: none; padding: 0; margin: 20px 0; }
+    .showcase-points li { padding: 6px 0; color: #cbd5e1; display: flex; align-items: center; gap: 8px; }
+    .showcase-img-box {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+    .showcase-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Comparison Grid */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 80px auto;
       padding: 0 20px;
     }
     .feature-card {
-      background: var(--surface);
+      background: var(--surface-card);
       padding: 28px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      transition: transform 0.2s, border-color 0.2s;
     }
-    .feature-card:hover {
-      transform: translateY(-2px);
-      border-color: #475569;
-    }
-    .feature-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    .feature-card h3 {
-      font-size: 20px;
-      margin: 0 0 10px 0;
-      color: #ffffff;
-    }
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 15px;
-      margin: 0;
-    }
-    .comparison-banner {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border: 1px solid var(--border);
+    .feature-icon { font-size: 30px; margin-bottom: 16px; display: inline-block; }
+    .feature-card h3 { font-size: 20px; margin: 0 0 10px 0; color: #ffffff; }
+    .feature-card p { color: var(--text-muted); font-size: 15px; margin: 0; }
+
+    /* PDF Banner */
+    .pdf-promo-banner {
+      background: linear-gradient(135deg, #0369a1, #0f172a);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       border-radius: 16px;
-      max-width: 1000px;
-      margin: 40px auto 80px auto;
-      padding: 40px 30px;
-      text-align: center;
+      max-width: 1160px;
+      margin: 60px auto;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
     }
-    .comparison-banner h2 {
-      font-size: 30px;
-      margin-top: 0;
-      color: #ffffff;
-    }
-    .pricing-badge {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--primary);
-      margin: 16px 0;
-    }
-    .pricing-sub {
-      color: var(--text-muted);
-      font-size: 16px;
-    }
+    .pdf-promo-banner h2 { font-size: 32px; margin: 0 0 12px 0; }
+    .pdf-promo-banner p { color: #cbd5e1; font-size: 16px; margin: 0; max-width: 600px; }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 40px 20px;
@@ -205,25 +234,26 @@
       color: #64748b;
       font-size: 14px;
     }
-    footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin: 0 12px;
-    }
+    footer a { color: var(--text-muted); text-decoration: none; margin: 0 12px; }
     footer a:hover { color: var(--primary); }
+
+    @media (max-width: 860px) {
+      .showcase-display { grid-template-columns: 1fr; }
+      .pdf-promo-banner { flex-direction: column; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="#" class="logo-container">
+    <a href="index.html" class="logo-container">
       <div class="logo-badge">👻</div>
       <span>GhostAlign</span>
     </a>
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="trades.html">Trade Solutions</a>
+      <a href="sample-pdf.html">Sample PDF Report</a>
       <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/rad2484/GhostAlign/issues">Support</a>
     </div>
   </header>
 
@@ -237,65 +267,118 @@
       <a href="https://apps.apple.com/app/id6834116507" class="btn btn-primary">
         <span></span> Download on App Store
       </a>
+      <a href="sample-pdf.html" class="btn btn-secondary">
+        <span>📄</span> View Sample PDF Report
+      </a>
       <a href="https://www.facebook.com/profile.php?id=61596343449686" class="btn btn-secondary">
-        <span>f</span> Join Facebook Community
+        <span>f</span> Facebook Community (1.4M Tradies)
       </a>
     </div>
   </section>
 
-  <div class="preview-container">
-    <img src="screenshots/ipad_2048x2732.png" alt="GhostAlign Live App Interface" class="preview-image" style="max-height: 520px; object-fit: contain;">
-  </div>
+  <!-- Interactive Visual Showcase -->
+  <section class="showcase-section">
+    <div class="showcase-header">
+      <h2>See GhostAlign in Action</h2>
+      <p>Click through the core capabilities built for the job site</p>
+    </div>
 
-  <section id="features" class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">👻</div>
-      <h3>Precision Ghost Viewfinder</h3>
-      <p>Superimpose a transparent overlay of your before photo directly over your live camera. Line up body lines and perspective down to the millimeter.</p>
+    <!-- Showcase 1: Ghost Viewfinder -->
+    <div class="showcase-display" style="margin-bottom: 40px;">
+      <div class="showcase-info">
+        <span style="color: var(--primary); font-weight: 700; font-size: 14px;">PATENT-PENDING OPTICAL ALIGNMENT</span>
+        <h3>Precision Ghost Viewfinder</h3>
+        <p>GhostAlign projects your original before photo directly over your live camera screen. Move your phone until the edges align, then tap capture for a millimeter-perfect perspective match.</p>
+        <ul class="showcase-points">
+          <li>✅ Live opacity slider (0% to 100% transparency)</li>
+          <li>✅ Rule-of-thirds grid and leveling crosshairs</li>
+          <li>✅ Works with any iPhone lens (Ultra-Wide, Wide, Telephoto)</li>
+        </ul>
+        <a href="how-it-works.html" class="btn btn-secondary" style="font-size: 14px; padding: 10px 20px;">Explore Alignment Guide ➔</a>
+      </div>
+      <div class="showcase-img-box">
+        <img src="screenshots/viewfinder_ghost_overlay.png" alt="GhostAlign Precision Viewfinder with Ghost Overlay">
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">📄</div>
-      <h3>Instant Client Proof PDFs</h3>
-      <p>Export branded, timestamped before-and-after inspection reports in one tap. Send via SMS, WhatsApp, or Email to settle client disputes immediately.</p>
+
+    <!-- Showcase 2: Printable PDF Proof Sheet -->
+    <div class="showcase-display" style="margin-bottom: 40px;">
+      <div class="showcase-img-box">
+        <img src="screenshots/sample_client_proof_sheet.png" alt="GhostAlign Sample Client Inspection Proof Sheet">
+      </div>
+      <div class="showcase-info">
+        <span style="color: #10b981; font-weight: 700; font-size: 14px;">INSTANT DISPUTE SETTLEMENT</span>
+        <h3>Branded Client Proof Sheets (PDF)</h3>
+        <p>Convert matched photo pairs into clean, branded inspection reports in one tap. Text, email, or AirDrop the PDF to the homeowner to shut down disputes over pre-existing scratches, cracks, or dents in 30 seconds.</p>
+        <ul class="showcase-points">
+          <li>✅ Custom company name, license #, and contact branding</li>
+          <li>✅ Tamper-resistant dates and timestamps</li>
+          <li>✅ Multi-photo inspection angles in a single document</li>
+        </ul>
+        <a href="sample-pdf.html" class="btn btn-secondary" style="font-size: 14px; padding: 10px 20px;">Inspect Sample PDF Page ➔</a>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔒</div>
-      <h3>100% Offline & Local</h3>
-      <p>All photos stay encrypted on your device. Works seamlessly in windowless garages, basements, and rural sites with zero cell service.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">💎</div>
-      <h3>No Monthly Subscriptions</h3>
-      <p>Forget $30-$50/month software that holds your photos hostage. GhostAlign is free to test, with a clean one-time lifetime license.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📐</div>
-      <h3>Leveling & Grid Guides</h3>
-      <p>Built-in rule-of-thirds grid and leveling crosshairs guarantee consistent elevation, tilt, and optical alignment across every job.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🏷️</div>
-      <h3>Custom Business Branding</h3>
-      <p>Add your company logo, trade license number, business name, and notes to every PDF report automatically.</p>
+
+    <!-- Showcase 3: Job Vault & Project Management -->
+    <div class="showcase-display">
+      <div class="showcase-info">
+        <span style="color: #8b5cf6; font-weight: 700; font-size: 14px;">100% LOCAL-FIRST & OFFLINE</span>
+        <h3>Offline Job Vault</h3>
+        <p>Keep every client and property organized with zero cloud lag. GhostAlign stores all high-resolution photos and notes locally on your device—works even in underground garages and rural basements with no cell signal.</p>
+        <ul class="showcase-points">
+          <li>✅ Zero cloud accounts, passwords, or logins required</li>
+          <li>✅ Complete customer details (Name, phone, vehicle/property)</li>
+          <li>✅ No monthly recurring software subscriptions</li>
+        </ul>
+        <a href="trades.html" class="btn btn-secondary" style="font-size: 14px; padding: 10px 20px;">View Trade Solutions ➔</a>
+      </div>
+      <div class="showcase-img-box">
+        <img src="screenshots/1_job_list.png" alt="GhostAlign Offline Job Vault Interface">
+      </div>
     </div>
   </section>
 
-  <section id="pricing" class="comparison-banner">
-    <h2>Fair, Transparent Pricing</h2>
-    <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 20px auto;">Start completely free with 1 active project and up to 3 photo angles. Unlock unlimited jobs and branded PDF proof sheets forever.</p>
-    <div class="pricing-badge">$29.99 <span style="font-size: 20px; color: #94a3b8; font-weight: normal;">one-time lifetime</span></div>
-    <p class="pricing-sub">Save $20 off regular $49.99 price through New Year · Own it forever with zero monthly fees.</p>
-    <div style="margin-top: 30px;">
-      <a href="https://apps.apple.com/app/id6834116507" class="btn btn-primary">Get GhostAlign for iOS</a>
+  <!-- PDF Promo Callout -->
+  <div class="pdf-promo-banner">
+    <div>
+      <h2>Need to see the report format?</h2>
+      <p>Check out our dedicated sample PDF inspection page showing timestamps, side-by-side photo pairs, and contractor warranty clauses.</p>
+    </div>
+    <a href="sample-pdf.html" class="btn btn-primary" style="white-space: nowrap;">View Full PDF Report ➔</a>
+  </div>
+
+  <section class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🚗</div>
+      <h3>Auto Detailers</h3>
+      <p>Match Scangrip lighting reflection angles. Prove 50/50 paint correction results with zero optical drift.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💦</div>
+      <h3>Pressure Washers</h3>
+      <p>Document pre-existing window seal leaks, oxidized siding, and cracked patio pavers before starting.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <h3>Painters & Drywall</h3>
+      <p>Showcase seamless drywall patch blending and exterior color transitions from identical room elevations.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧱</div>
+      <h3>Tile & Flooring</h3>
+      <p>Document subfloor leveling, lippage alignment, and waterproof shower pans with millimeter crosshairs.</p>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2026 GhostAlign · Developed by Rahul Damodaran</p>
     <p>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="trades.html">Trade Solutions</a>
+      <a href="sample-pdf.html">Sample PDF Report</a>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="https://github.com/rad2484/GhostAlign/issues">Support & Issues</a>
-      <a href="https://www.facebook.com/profile.php?id=61596343449686">Official Facebook Page</a>
+      <a href="https://github.com/rad2484/GhostAlign/issues">Support</a>
     </p>
   </footer>
 </body>
