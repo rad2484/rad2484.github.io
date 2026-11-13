@@ -1,33 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e1e24" />
-      <stop offset="100%" stop-color="#0a0a0c" />
-    </linearGradient>
-    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="100%" stop-color="#ea580c" />
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#f97316" flood-opacity="0.4" />
-    </filter>
-  </defs>
 
-  <!-- App Icon Background -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" stroke="#333338" stroke-width="6" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+    <defs>
+      <!-- Background Gradients -->
+      <radialGradient id="spaceGlow" cx="50%" cy="45%" r="65%">
+        <stop offset="0%" stop-color="#1e293b" />
+        <stop offset="55%" stop-color="#0f172a" />
+        <stop offset="100%" stop-color="#020617" />
+      </radialGradient>
+      
+      <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#38bdf8" />
+        <stop offset="50%" stop-color="#0284c7" />
+        <stop offset="100%" stop-color="#0369a1" />
+      </linearGradient>
 
-  <!-- Camera Body -->
-  <path d="M140 180 L180 130 L332 130 L372 180 L420 180 C437.6 180 452 194.4 452 212 L452 388 C452 405.6 437.6 420 420 420 L92 420 C74.4 420 60 405.6 60 388 L60 212 C60 194.4 74.4 180 92 180 Z" 
-        fill="url(#brandGrad)" filter="url(#glow)" />
+      <linearGradient id="laserGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+        <stop offset="50%" stop-color="#38bdf8" stop-opacity="1" />
+        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+      </linearGradient>
 
-  <!-- Ghost Ring / Lens Outer -->
-  <circle cx="256" cy="300" r="88" fill="#17171c" stroke="#ffffff" stroke-width="8" />
+      <linearGradient id="lensGlass" x1="20%" y1="20%" x2="80%" y2="80%">
+        <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.9" />
+        <stop offset="40%" stop-color="#0f172a" stop-opacity="0.95" />
+        <stop offset="70%" stop-color="#0284c7" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="#020617" stop-opacity="0.98" />
+      </linearGradient>
 
-  <!-- Ghost Aperture Aperture Blades & Center -->
-  <circle cx="256" cy="300" r="54" fill="#f97316" opacity="0.3" />
-  <circle cx="256" cy="300" r="32" fill="#ffffff" />
-  <circle cx="272" cy="286" r="10" fill="#ffffff" opacity="0.8" />
+      <linearGradient id="glassReflection" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+        <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.15" />
+        <stop offset="70%" stop-color="#818cf8" stop-opacity="0.05" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      </linearGradient>
 
-  <!-- Top Flash Lens -->
-  <circle cx="390" cy="225" r="14" fill="#ffffff" opacity="0.85" />
-</svg>
+      <!-- Glow Filters -->
+      <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="12" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <filter id="subtleGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="24" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- App Icon Base Solid Background (iOS requires no transparency in store icon) -->
+    <rect width="1024" height="1024" fill="url(#spaceGlow)" />
+
+    <!-- Subtle Technical Background Grid -->
+    <g opacity="0.08" stroke="#38bdf8" stroke-width="2">
+      <line x1="128" y1="0" x2="128" y2="1024" />
+      <line x1="256" y1="0" x2="256" y2="1024" />
+      <line x1="384" y1="0" x2="384" y2="1024" />
+      <line x1="512" y1="0" x2="512" y2="1024" />
+      <line x1="640" y1="0" x2="640" y2="1024" />
+      <line x1="768" y1="0" x2="768" y2="1024" />
+      <line x1="896" y1="0" x2="896" y2="1024" />
+
+      <line x1="0" y1="128" x2="1024" y2="128" />
+      <line x1="0" y1="256" x2="1024" y2="256" />
+      <line x1="0" y1="384" x2="1024" y2="384" />
+      <line x1="0" y1="512" x2="1024" y2="512" />
+      <line x1="0" y1="640" x2="1024" y2="640" />
+      <line x1="0" y1="768" x2="1024" y2="768" />
+      <line x1="0" y1="896" x2="1024" y2="896" />
+    </g>
+
+    <!-- LAYER 1: "Ghost" Offset Semi-Transparent Frame (The Before Layer) -->
+    <g opacity="0.32" transform="translate(-28, -28)">
+      <!-- Dashed Ghost Viewfinder Frame -->
+      <rect x="220" y="220" width="584" height="584" rx="44" fill="none" stroke="#38bdf8" stroke-width="6" stroke-dasharray="16 12" />
+      <!-- Ghost Corner Accents -->
+      <path d="M 220 280 L 220 220 L 280 220" fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" />
+      <path d="M 804 280 L 804 220 L 744 220" fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" />
+      <path d="M 220 744 L 220 804 L 280 804" fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" />
+      <path d="M 804 744 L 804 804 L 744 804" fill="none" stroke="#38bdf8" stroke-width="12" stroke-linecap="round" />
+    </g>
+
+    <!-- LAYER 2: Primary Active Precision Viewfinder (The Live / After Layer) -->
+    <g filter="url(#glowCyan)">
+      <!-- Corner Viewfinder Brackets -->
+      <!-- Top Left -->
+      <path d="M 180 280 L 180 200 C 180 188.95 188.95 180 200 180 L 280 180" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" />
+      <!-- Top Right -->
+      <path d="M 844 280 L 844 200 C 844 188.95 835.05 180 824 180 L 744 180" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" />
+      <!-- Bottom Left -->
+      <path d="M 180 744 L 180 824 C 180 835.05 188.95 844 200 844 L 280 844" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" />
+      <!-- Bottom Right -->
+      <path d="M 844 744 L 844 824 C 844 835.05 835.05 844 824 844 L 744 844" fill="none" stroke="#38bdf8" stroke-width="16" stroke-linecap="round" />
+      
+      <!-- Precision Ruler Tick Marks along Viewfinder Edge -->
+      <line x1="512" y1="164" x2="512" y2="196" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+      <line x1="452" y1="172" x2="452" y2="188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+      <line x1="572" y1="172" x2="572" y2="188" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+
+      <line x1="512" y1="828" x2="512" y2="860" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+      <line x1="452" y1="836" x2="452" y2="852" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+      <line x1="572" y1="836" x2="572" y2="852" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+
+      <line x1="164" y1="512" x2="196" y2="512" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+      <line x1="172" y1="452" x2="188" y2="452" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+      <line x1="172" y1="572" x2="188" y2="572" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+
+      <line x1="828" y1="512" x2="860" y2="512" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" />
+      <line x1="836" y1="452" x2="852" y2="452" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+      <line x1="836" y1="572" x2="852" y2="572" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+    </g>
+
+    <!-- CENTER OPTICAL ELEMENT: Camera Lens & Alignment Aperture -->
+    <!-- Outer Heavy Steel Bezel -->
+    <circle cx="512" cy="512" r="248" fill="#0b0f17" stroke="#334155" stroke-width="14" />
+    
+    <!-- Neon Aperture Ring with Millimeter Graduation Marks -->
+    <circle cx="512" cy="512" r="226" fill="none" stroke="#38bdf8" stroke-width="4" opacity="0.6" stroke-dasharray="8 6" />
+
+    <!-- Multi-coated Glass Optics Chamber -->
+    <circle cx="512" cy="512" r="204" fill="url(#lensGlass)" stroke="#0284c7" stroke-width="6" />
+
+    <!-- Optical Reflection Arc (Curved Glass Sheen) -->
+    <path d="M 360 400 A 190 190 0 0 1 664 400 A 180 160 0 0 0 360 400 Z" fill="url(#glassReflection)" />
+
+    <!-- Center Laser Crosshair Reticle -->
+    <g filter="url(#glowCyan)">
+      <!-- Horizontal laser bar -->
+      <line x1="332" y1="512" x2="460" y2="512" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+      <line x1="564" y1="512" x2="692" y2="512" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Vertical laser bar -->
+      <line x1="512" y1="332" x2="512" y2="460" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+      <line x1="512" y1="564" x2="512" y2="692" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Inner Target Ring -->
+      <circle cx="512" cy="512" r="64" fill="none" stroke="#38bdf8" stroke-width="6" stroke-dasharray="14 10" />
+
+      <!-- Center Lock-on Bullseye Dot -->
+      <circle cx="512" cy="512" r="16" fill="#38bdf8" />
+      <circle cx="512" cy="512" r="8" fill="#ffffff" />
+    </g>
+
+    <!-- Split-Screen / 50-50 Dual State Indicator Line -->
+    <!-- A sharp vertical alignment datum line -->
+    <line x1="512" y1="120" x2="512" y2="280" stroke="#ffffff" stroke-width="3" opacity="0.4" stroke-dasharray="6 6" />
+    <line x1="512" y1="744" x2="512" y2="904" stroke="#ffffff" stroke-width="3" opacity="0.4" stroke-dasharray="6 6" />
+
+    <!-- Precision Status Badge Indicator (Top Right inside lens) -->
+    <g transform="translate(620, 360)">
+      <circle cx="0" cy="0" r="14" fill="#10b981" filter="url(#glowCyan)" />
+      <circle cx="0" cy="0" r="6" fill="#ffffff" />
+    </g>
+  </svg>
+  
