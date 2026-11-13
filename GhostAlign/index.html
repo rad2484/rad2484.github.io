@@ -5,149 +5,297 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GhostAlign — Precision Before & After Camera for Trades</title>
   <meta name="description" content="Precision ghost-overlay camera & client PDF proof sheets for contractors, auto detailers, and trades.">
+  <link rel="icon" type="image/svg+xml" href="assets/icon-192.svg">
   <style>
+    :root {
+      --primary: #38bdf8;
+      --primary-hover: #7dd3fc;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: #1f2937;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      background-color: #0f172a;
-      color: #f8fafc;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
     }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .logo-badge {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 15px;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
     .hero {
       text-align: center;
-      padding: 40px 0;
+      padding: 64px 20px 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    h1 {
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .subtitle {
-      font-size: 20px;
-      color: #94a3b8;
-      max-width: 650px;
-      margin: 0 auto 32px auto;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 6px 14px;
+    .promo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 6px 16px;
       border-radius: 9999px;
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 24px;
     }
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin: 0 0 20px 0;
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 36px auto;
+    }
     .cta-container {
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-top: 24px;
       flex-wrap: wrap;
     }
     .btn {
       display: inline-flex;
       align-items: center;
-      padding: 12px 24px;
-      border-radius: 8px;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 10px;
       font-weight: 600;
       font-size: 16px;
       text-decoration: none;
       transition: all 0.2s;
     }
     .btn-primary {
-      background: #38bdf8;
+      background: var(--primary);
       color: #0f172a;
+      box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
     }
     .btn-primary:hover {
-      background: #7dd3fc;
+      background: var(--primary-hover);
+      transform: translateY(-1px);
     }
     .btn-secondary {
-      background: #1e293b;
-      color: #f8fafc;
-      border: 1px solid #334155;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
     }
-    .btn-secondary:hover {
-      background: #334155;
+    .btn-secondary:hover { background: #334155; }
+    .preview-container {
+      max-width: 1000px;
+      margin: 50px auto 0 auto;
+      padding: 0 20px;
+      text-align: center;
     }
-    .features {
+    .preview-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      margin: 60px 0;
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
     }
     .feature-card {
-      background: #1e293b;
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid #334155;
+      background: var(--surface);
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: #475569;
+    }
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: inline-block;
     }
     .feature-card h3 {
-      font-size: 18px;
-      margin-top: 0;
-      color: #38bdf8;
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      color: #ffffff;
     }
     .feature-card p {
-      color: #94a3b8;
-      font-size: 14px;
-      margin-bottom: 0;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin: 0;
+    }
+    .comparison-banner {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 1000px;
+      margin: 40px auto 80px auto;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .comparison-banner h2 {
+      font-size: 30px;
+      margin-top: 0;
+      color: #ffffff;
+    }
+    .pricing-badge {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 16px 0;
+    }
+    .pricing-sub {
+      color: var(--text-muted);
+      font-size: 16px;
     }
     footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
       text-align: center;
-      padding-top: 40px;
-      border-top: 1px solid #334155;
       color: #64748b;
       font-size: 14px;
     }
     footer a {
-      color: #94a3b8;
+      color: var(--text-muted);
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 12px;
     }
-    footer a:hover {
-      color: #38bdf8;
-    }
+    footer a:hover { color: var(--primary); }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="badge">🎉 New Year Launch Special · $29.99 Lifetime</div>
-    <h1>GhostAlign</h1>
-    <p class="subtitle">The precision ghost-overlay camera & client PDF proof sheet builder for contractors, auto detailers, and trades.</p>
-    <div class="cta-container">
-      <a href="https://apps.apple.com/app/id6834116507" class="btn btn-primary">Download on App Store</a>
-      <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+  <header>
+    <a href="#" class="logo-container">
+      <div class="logo-badge">👻</div>
+      <span>GhostAlign</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/rad2484/GhostAlign/issues">Support</a>
     </div>
+  </header>
+
+  <section class="hero">
+    <div class="promo-pill">
+      <span>🎉</span> New Year Launch Special · $29.99 Lifetime (Save 40%)
+    </div>
+    <h1>Stop Arguing With Clients Over Pre-Existing Damage.</h1>
+    <p>The precision ghost-overlay camera & client proof sheet builder engineered for contractors, auto detailers, painters, and pressure washers.</p>
+    <div class="cta-container">
+      <a href="https://apps.apple.com/app/id6834116507" class="btn btn-primary">
+        <span></span> Download on App Store
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61596343449686" class="btn btn-secondary">
+        <span>f</span> Join Facebook Community
+      </a>
+    </div>
+  </section>
+
+  <div class="preview-container">
+    <img src="screenshots/ipad_2048x2732.png" alt="GhostAlign Live App Interface" class="preview-image" style="max-height: 520px; object-fit: contain;">
   </div>
 
-  <div class="features">
+  <section id="features" class="features-grid">
     <div class="feature-card">
-      <h3>👻 Precision Ghost Overlay</h3>
-      <p>Superimpose your original before photo over the live camera viewfinder. Match angle, perspective, and elevation down to the millimeter.</p>
+      <div class="feature-icon">👻</div>
+      <h3>Precision Ghost Viewfinder</h3>
+      <p>Superimpose a transparent overlay of your before photo directly over your live camera. Line up body lines and perspective down to the millimeter.</p>
     </div>
     <div class="feature-card">
-      <h3>📄 Instant Client Proof PDFs</h3>
-      <p>Export branded, timestamped before-and-after inspection reports in one tap. Send via SMS, WhatsApp, or Email to settle client disputes on the spot.</p>
+      <div class="feature-icon">📄</div>
+      <h3>Instant Client Proof PDFs</h3>
+      <p>Export branded, timestamped before-and-after inspection reports in one tap. Send via SMS, WhatsApp, or Email to settle client disputes immediately.</p>
     </div>
     <div class="feature-card">
-      <h3>🔒 100% Offline & Private</h3>
-      <p>All photos remain stored securely on your device. Zero cloud uploads, zero account logins, and no monthly recurring subscription fees.</p>
+      <div class="feature-icon">🔒</div>
+      <h3>100% Offline & Local</h3>
+      <p>All photos stay encrypted on your device. Works seamlessly in windowless garages, basements, and rural sites with zero cell service.</p>
     </div>
-  </div>
+    <div class="feature-card">
+      <div class="feature-icon">💎</div>
+      <h3>No Monthly Subscriptions</h3>
+      <p>Forget $30-$50/month software that holds your photos hostage. GhostAlign is free to test, with a clean one-time lifetime license.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📐</div>
+      <h3>Leveling & Grid Guides</h3>
+      <p>Built-in rule-of-thirds grid and leveling crosshairs guarantee consistent elevation, tilt, and optical alignment across every job.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏷️</div>
+      <h3>Custom Business Branding</h3>
+      <p>Add your company logo, trade license number, business name, and notes to every PDF report automatically.</p>
+    </div>
+  </section>
+
+  <section id="pricing" class="comparison-banner">
+    <h2>Fair, Transparent Pricing</h2>
+    <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 20px auto;">Start completely free with 1 active project and up to 3 photo angles. Unlock unlimited jobs and branded PDF proof sheets forever.</p>
+    <div class="pricing-badge">$29.99 <span style="font-size: 20px; color: #94a3b8; font-weight: normal;">one-time lifetime</span></div>
+    <p class="pricing-sub">Save $20 off regular $49.99 price through New Year · Own it forever with zero monthly fees.</p>
+    <div style="margin-top: 30px;">
+      <a href="https://apps.apple.com/app/id6834116507" class="btn btn-primary">Get GhostAlign for iOS</a>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2026 GhostAlign · Built by Rahul Damodaran</p>
+    <p>&copy; 2026 GhostAlign · Developed by Rahul Damodaran</p>
     <p>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="https://github.com/rad2484/GhostAlign/issues">Support</a>
+      <a href="https://github.com/rad2484/GhostAlign/issues">Support & Issues</a>
+      <a href="https://www.facebook.com/profile.php?id=61596343449686">Official Facebook Page</a>
     </p>
   </footer>
 </body>
