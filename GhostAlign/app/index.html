@@ -9,22 +9,32 @@
     <meta name="theme-color" content="#121212" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="description" content="GhostAlign - The Before & After Camera with Ghost Overlay & Instant Progress Proof" />
-    <title>GhostAlign — Before & After Ghost Overlay Camera</title>
-    <script type="module" crossorigin src="./assets/index-C6h1jIRf.js"></script>
+    <meta name="description" content="GhostAlign — Interactive Web Demo & Precision Before/After Ghost Overlay Camera" />
+    <title>GhostAlign — Interactive Web Demo (30 Verified Trade Samples)</title>
+    <script type="module" crossorigin src="./assets/index-jrZSE40n.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-db-DPBJRbni.js">
     <link rel="modulepreload" crossorigin href="./assets/vendor-react-CeQevtti.js">
     <link rel="modulepreload" crossorigin href="./assets/vendor-pdf-DTaw0bkQ.js">
-    <link rel="modulepreload" crossorigin href="./assets/vendor-icons-CsytBh2J.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-DblsVrOw.css">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-icons-Ch6M4I_E.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-BXI-OQk5.css">
   </head>
   <body class="bg-neutral-950 text-neutral-100 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
     <div id="root"></div>
     <script>
+      // Purge any legacy radshot-v1 service worker cache so visitors always see the latest Demo build
+      if ('caches' in window) {
+        caches.keys().then(function(keys) {
+          keys.forEach(function(key) {
+            if (key.indexOf('radshot') !== -1) {
+              caches.delete(key);
+            }
+          });
+        });
+      }
       if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch((err) => {
-            console.debug('SW registration skipped or unsupported:', err);
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(reg) {
+            reg.update();
           });
         });
       }
