@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./icon-192.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="GhostAlign - The Before & After Camera with Ghost Overlay & Instant Progress Proof" />
+    <title>GhostAlign — Before & After Ghost Overlay Camera</title>
+    <script type="module" crossorigin src="./assets/index-BpbovZKS.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-db-DPBJRbni.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-CeQevtti.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-icons-BnTV5obW.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-pdf-DTaw0bkQ.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-poc4HJYy.css">
+  </head>
+  <body class="bg-neutral-950 text-neutral-100 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.debug('SW registration skipped or unsupported:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
